@@ -17,10 +17,8 @@ const styles = {
 };
 export const Container = ({ snapToGrid }) => {
   const [boxes, setBoxes] = useState({});
-
-  const [countX, setCountX] = useState(1);
+const [label, setLabel] = useState("");
   const [id, setId] = useState();
-  const [countO, setCountO] = useState(1);
   const moveBox = useCallback(
     (id, left, top) => {
       setBoxes(
@@ -47,6 +45,7 @@ export const Container = ({ snapToGrid }) => {
         moveBox(item.id, left, top);
         console.log(item.id, left, top);
         if (left > styles.width - 90 && top > styles.width - 100) {
+          
           delete boxes[`${item.id}`];
           console.log(boxes);
           setBoxes(boxes);
@@ -57,45 +56,21 @@ export const Container = ({ snapToGrid }) => {
     [moveBox]
   );
   const newXBox = () => {
-    setCountX(countX + 1);
     setBoxes({
       ...boxes,
-      [`x${countX}`]: { top: 20, left: 60, title: "X" },
-    });
-  };
-
-  const newOBox = () => {
-    setCountO(countO + 1);
-    setBoxes({
-      ...boxes,
-      [`o${countO}`]: { top: 60, left: 60, title: "O" },
+      [`x${Date.now()}`]: { top: 20, left: 60, title: label },
     });
   };
   useEffect(() => {
     console.log(boxes);
-  }, [boxes, countO, countX]);
+  }, [boxes]);
   useEffect(() => {
     dndMedic.getDnDMedic().then((value) => {
       setId(value[0].id);
       delete value[0].id;
-      let co = 0;
-      let cx = 0;
-
       Object.entries(value[0]).map((val) => {
         console.log(val[0]);
-        const textVal = val[0].match(/[a-zA-Z]+/g);
-        switch (textVal[0]) {
-          case "o":
-            co++;
-            break;
-          case "x":
-            cx++;
-            break;
-        }
       });
-      setCountO(co + 1);
-      setCountX(cx + 1);
-      console.log(co, cx);
 
       setBoxes({ ...value[0] });
     });
@@ -107,10 +82,24 @@ export const Container = ({ snapToGrid }) => {
     const wID = { ...boxes, id: id };
     dndMedic.editDnDMedic(wID);
   };
+  useEffect(() => {
+    console.log(label);
+  },[label])
+  const handleOnChange = ({target}) => {
+    const { name, value } = target
+    setLabel(value)
+  }
   return (
     <div ref={drop} style={styles}>
-      <button onClick={newXBox}>X+</button>
-      <button onClick={newOBox}>O+</button>
+      <div style={{margin:"5px"} }><input
+        name="label"
+        onChange={handleOnChange}
+        style={{ width: "100px" }}
+      />
+      <button onClick={newXBox} style={{ borderRadius: "0 15px 15px 0" }}>
+        agregar
+      </button></div>
+      
       {Object.keys(boxes).map((key) => (
         <DraggableBox key={key} id={key} {...boxes[key]} />
       ))}
@@ -130,17 +119,14 @@ export const Container = ({ snapToGrid }) => {
       ></div>
       <button
         style={{
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-
           position: "absolute",
-          right: "0",
-          top: "0",
+          right: "5px",
+          top: "5px",
         }}
         onClick={saveState}
       >
-        Save
+        
+        Guardar
       </button>
     </div>
   );
