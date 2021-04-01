@@ -44,7 +44,7 @@ const [label, setLabel] = useState("");
         }
         moveBox(item.id, left, top);
         console.log(item.id, left, top);
-        if (left > styles.width - 90 && top > styles.width - 100) {
+        if (left > styles.width - 120 && top > styles.width - 120) {
           
           delete boxes[`${item.id}`];
           console.log(boxes);
