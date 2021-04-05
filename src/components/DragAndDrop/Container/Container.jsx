@@ -88,24 +88,27 @@ export const Container = ({ snapToGrid }) => {
     const { name, value } = target
     setLabel(value)
   }
+  const trashcanIMG =
+    "https://cdn1.iconfinder.com/data/icons/symbol-set-1/100/Untitled-2-50-512.png";
   return (
     <div ref={drop} style={styles}>
-      <div style={{ margin: "5px" }}><input
-        name="label"
-        onChange={handleOnChange}
-        style={{ width: "100px" }}
-      />
+      <div style={{ margin: "5px" }}>
+        <input
+          name="label"
+          onChange={handleOnChange}
+          style={{ width: "100px" }}
+        />
         <button onClick={newXBox} style={{ borderRadius: "0 15px 15px 0" }}>
           agregar
-      </button></div>
+        </button>
+      </div>
 
       {Object.keys(boxes).map((key) => (
         <DraggableBox key={key} id={key} {...boxes[key]} />
       ))}
       <div
         style={{
-          background:
-            "url('https://cdn1.iconfinder.com/data/icons/symbol-set-1/100/Untitled-2-50-512.png')",
+          backgroundImage: `url(${trashcanIMG})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
@@ -124,7 +127,6 @@ export const Container = ({ snapToGrid }) => {
         }}
         onClick={saveState}
       >
-
         Guardar
       </button>
     </div>
