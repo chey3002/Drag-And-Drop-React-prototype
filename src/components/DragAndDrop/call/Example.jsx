@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
-import { Container } from './Container';
-import { CustomDragLayer } from './CustomDragLayer';
+import { Container } from '../Container/Container';
+import { CustomDragLayer } from '../Container/CustomDragLayer';
 export const Example = () => {
     const [snapToGridAfterDrop, setSnapToGridAfterDrop] = useState(false);
     const [snapToGridWhileDragging, setSnapToGridWhileDragging] = useState(false);

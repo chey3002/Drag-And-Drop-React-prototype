@@ -1,6 +1,6 @@
 import { memo, useEffect, useState } from "react";
 import { useDrag } from "react-dnd";
-import { ItemTypes } from "./ItemTypes";
+import { ItemTypes } from "../itemTypes/ItemTypes";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import { Box } from "./Box";
 import { Tooltip } from "reactstrap";

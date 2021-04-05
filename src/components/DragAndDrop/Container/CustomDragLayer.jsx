@@ -1,7 +1,6 @@
 import { useDragLayer } from 'react-dnd';
-import { ItemTypes } from './ItemTypes';
-import { BoxDragPreview } from './BoxDragPreview';
-import { snapToGrid } from './snapToGrid';
+import { ItemTypes } from '../itemTypes/ItemTypes';
+import { BoxDragPreview } from '../box/BoxDragPreview';
 const layerStyles = {
     position: 'fixed',
     pointerEvents: 'none',
@@ -18,13 +17,7 @@ function getItemStyles(initialOffset, currentOffset, isSnapToGrid) {
         };
     }
     let { x, y } = currentOffset;
-    if (isSnapToGrid) {
-        x -= initialOffset.x;
-        y -= initialOffset.y;
-        [x, y] = snapToGrid(x, y);
-        x += initialOffset.x;
-        y += initialOffset.y;
-    }
+ 
     const transform = `translate(${x}px, ${y}px)`;
     return {
         transform,

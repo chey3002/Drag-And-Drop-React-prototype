@@ -1,6 +1,6 @@
 
 	import { render } from 'react-dom'
-	import Example from './example'
+	import Example from './components/DragAndDrop/call/example'
 	import { DndProvider } from 'react-dnd'
 	import { HTML5Backend } from 'react-dnd-html5-backend'
 	import "./Config/firebase";

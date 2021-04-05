@@ -1,23 +1,24 @@
 import { useCallback, useState, useEffect } from "react";
 import { useDrop } from "react-dnd";
-import { ItemTypes } from "./ItemTypes";
-import { DraggableBox } from "./DraggableBox";
-import { snapToGrid as doSnapToGrid } from "./snapToGrid";
+import { ItemTypes } from "../itemTypes/ItemTypes";
+import { DraggableBox } from "../box/DraggableBox";
 import update from "immutability-helper";
-import dndMedic from "./Consultas/dnd-Medic";
+import dndMedic from "../../../Consultas/dnd-Medic";
+
+const backgroundImageURL =
+  "https://coloringhome.com/coloring/KTn/gLr/KTngLrbAc.jpg";
 const styles = {
   width: 750,
   height: 750,
   border: "1px solid black",
   position: "relative",
-  backgroundImage:
-    "url('https://coloringhome.com/coloring/KTn/gLr/KTngLrbAc.jpg')",
+  backgroundImage: `url(${backgroundImageURL})`,
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
 };
 export const Container = ({ snapToGrid }) => {
   const [boxes, setBoxes] = useState({});
-const [label, setLabel] = useState("");
+  const [label, setLabel] = useState("");
   const [id, setId] = useState();
   const moveBox = useCallback(
     (id, left, top) => {
@@ -39,13 +40,11 @@ const [label, setLabel] = useState("");
 
         let left = Math.round(item.left + delta.x);
         let top = Math.round(item.top + delta.y);
-        if (snapToGrid) {
-          [left, top] = doSnapToGrid(left, top);
-        }
+      
         moveBox(item.id, left, top);
         console.log(item.id, left, top);
         if (left > styles.width - 120 && top > styles.width - 120) {
-          
+
           delete boxes[`${item.id}`];
           console.log(boxes);
           setBoxes(boxes);
@@ -84,22 +83,22 @@ const [label, setLabel] = useState("");
   };
   useEffect(() => {
     console.log(label);
-  },[label])
-  const handleOnChange = ({target}) => {
+  }, [label])
+  const handleOnChange = ({ target }) => {
     const { name, value } = target
     setLabel(value)
   }
   return (
     <div ref={drop} style={styles}>
-      <div style={{margin:"5px"} }><input
+      <div style={{ margin: "5px" }}><input
         name="label"
         onChange={handleOnChange}
         style={{ width: "100px" }}
       />
-      <button onClick={newXBox} style={{ borderRadius: "0 15px 15px 0" }}>
-        agregar
+        <button onClick={newXBox} style={{ borderRadius: "0 15px 15px 0" }}>
+          agregar
       </button></div>
-      
+
       {Object.keys(boxes).map((key) => (
         <DraggableBox key={key} id={key} {...boxes[key]} />
       ))}
@@ -125,7 +124,7 @@ const [label, setLabel] = useState("");
         }}
         onClick={saveState}
       >
-        
+
         Guardar
       </button>
     </div>
