@@ -35,8 +35,8 @@ export const DraggableBox = memo(function DraggableBox(props) {
   }, []);
   const dragging = () => {
     setTooltipOpen(isDragging);
-  }
- 
+  };
+
   return (
     <div>
       <div
@@ -61,6 +61,9 @@ export const DraggableBox = memo(function DraggableBox(props) {
           borderRadius: "5px",
           paddingLeft: "5px",
           paddingRight: "5px",
+          maxWidth: "250px",
+          textAlign: "justify",
+          textJustify: "auto",
         }}
       >
         {title}
