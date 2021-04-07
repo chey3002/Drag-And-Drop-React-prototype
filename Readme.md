@@ -80,7 +80,7 @@ El usuario puede ingresar descripciones de lo que quieren señalar, y agregarlas
 
 Para cambiar la imagen de fondo tenemos que cambiar la variable “backgroundImageURL” ubicada en el archivo “Container.jsx”.
 
-```
+```javascript
 const backgroundImageURL =
   "https://coloringhome.com/coloring/KTn/gLr/KTngLrbAc.jpg";
 const styles = {
@@ -96,7 +96,7 @@ const styles = {
 
 Para cambiar la imagen de las marcas, tenemos que modificar la variable “boxImage” del archivo “Box.jsx”
 
-```
+```js
  const boxImage="https://hubpng.com/download/52Wb3KNvVpVrNflOEAmaE7diyZj3RjGbRh9CYDKCTmaHulyXTNxWURf3FeFd9VemWqKXfLWxUO33t6bNdAlWJHHehe614NS3wabw4f6WbqxodyxpstvNsifS1GFEIt7cVqFH4BHap6FMOmKG5uG6EUkHBEvUV0PouroNUi6YxjLyS0nMQIWMg6gLtH8lhLOPGyqzfa6h/large"
     return (
       <div
