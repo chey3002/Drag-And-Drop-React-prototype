@@ -80,11 +80,42 @@ El usuario puede ingresar descripciones de lo que quieren señalar, y agregarlas
 
 Para cambiar la imagen de fondo tenemos que cambiar la variable “backgroundImageURL” ubicada en el archivo “Container.jsx”.
 
-![](https://i.imgur.com/zpb7D8x.png)
+```
+const backgroundImageURL =
+  "https://coloringhome.com/coloring/KTn/gLr/KTngLrbAc.jpg";
+const styles = {
+  width: 750,
+  height: 750,
+  border: "1px solid black",
+  position: "relative",
+  backgroundImage: `url(${backgroundImageURL})`,
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
+};
+```
 
 Para cambiar la imagen de las marcas, tenemos que modificar la variable “boxImage” del archivo “Box.jsx”
 
-![](https://i.imgur.com/gKDx09Y.png)
+```
+ const boxImage="https://hubpng.com/download/52Wb3KNvVpVrNflOEAmaE7diyZj3RjGbRh9CYDKCTmaHulyXTNxWURf3FeFd9VemWqKXfLWxUO33t6bNdAlWJHHehe614NS3wabw4f6WbqxodyxpstvNsifS1GFEIt7cVqFH4BHap6FMOmKG5uG6EUkHBEvUV0PouroNUi6YxjLyS0nMQIWMg6gLtH8lhLOPGyqzfa6h/large"
+    return (
+      <div
+        style={{ ...styles, backgroundColor }}
+        role={preview ? "BoxPreview" : "Box"}
+      >
+        <img
+          src={boxImage}
+          alt="crossair"
+          style={{
+            height: "30px",
+            display: "flex",
+            justifyContent: "center",
+            // filter: "invert(100%)",
+          }}
+        />
+      </div>
+    );
+```
 
 
 ---
