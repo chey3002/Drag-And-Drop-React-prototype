@@ -2,6 +2,7 @@
 
 ## Descripción del componente
 Usuarios: Médicos
+
 El prototipo permite generar marcas que ayudarán al médico a guardar información sobre zonas específicas del paciente.
 
 ![](https://i.imgur.com/ErkDljQ.png)
@@ -33,6 +34,7 @@ El usuario puede ingresar descripciones de lo que quieren señalar, y agregarlas
 
 ## Estructura del proyecto y descripción general
 Se utilizo como base el [Ejemplo](https://react-dnd.github.io/react-dnd/examples/drag-around/custom-drag-layer 'Custom Drag Layer') de custom drag layer de la documentación de react DnD
+
 📦src
 
 ┣ 📂components
