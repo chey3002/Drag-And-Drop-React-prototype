@@ -34,24 +34,43 @@ El usuario puede ingresar descripciones de lo que quieren señalar, y agregarlas
 ## Estructura del proyecto y descripción general
 Se utilizo como base el [Ejemplo](https://react-dnd.github.io/react-dnd/examples/drag-around/custom-drag-layer 'Custom Drag Layer') de custom drag layer de la documentación de react DnD
 📦src
+
 ┣ 📂components
+
 ┃ ┗ 📂DragAndDrop
+
 ┃ ┃ ┣ 📂box
+
 ┃ ┃ ┃ ┣ 📜Box.jsx: **Contenido y estructura de las marcas**
+
 ┃ ┃ ┃ ┣ 📜BoxDragPreview.jsx: **Animación de la marca al ser arastrada**
+
 ┃ ┃ ┃ ┗ 📜DraggableBox.jsx: **Logica de movimiento de la marca**
+
 ┃ ┃ ┣ 📂call: **Llamada de la aplicación**
+
 ┃ ┃ ┃ ┣ 📜example.js 
+
 ┃ ┃ ┃ ┗ 📜Example.jsx
+
 ┃ ┃ ┣ 📂Container
+
 ┃ ┃ ┃ ┣ 📜Container.jsx: **Contenedor de la aplicación**
+
 ┃ ┃ ┃ ┗ 📜CustomDragLayer.jsx: **Genera la drag layer**
+
 ┃ ┃ ┗ 📂itemTypes
+
 ┃ ┃ ┃ ┗ 📜ItemTypes.js: **Identifica la etiqueta Box**
+
 ┣ 📂Config
+
 ┃ ┗ 📜firebase.js: **Configuración de la base de datos**
+
 ┣ 📂Consultas
+
 ┃ ┗ 📜dnd-Medic.js: **Consulta a la base de datos**
+
 ┗ 📜index.js: **Main**
 
 
@@ -61,7 +80,7 @@ Se utilizo como base el [Ejemplo](https://react-dnd.github.io/react-dnd/examples
 
 Para cambiar la imagen de fondo tenemos que cambiar la variable “backgroundImageURL” ubicada en el archivo “Container.jsx”.
 
-```jsx=
+```jsx
 const backgroundImageURL = "https://image.com/background.png";
 const styles = {
   width: 750,
@@ -76,7 +95,7 @@ const styles = {
 
 Para cambiar la imagen de las marcas, tenemos que modificar la variable “boxImage” del archivo “Box.jsx”
 
-```jsx=
+```jsx
  const boxImage= "https://image.com/marca.png"
     return (
       <div
