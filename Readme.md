@@ -122,8 +122,6 @@ Para cambiar la imagen de las marcas, tenemos que modificar la variable “boxIm
 
 ---
 
-Written by :
-
-@Sr.Chey
+by : @chey3002
 
           
