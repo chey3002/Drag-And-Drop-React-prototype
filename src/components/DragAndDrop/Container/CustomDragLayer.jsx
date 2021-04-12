@@ -10,7 +10,7 @@ const layerStyles = {
     width: '100%',
     height: '100%',
 };
-function getItemStyles(initialOffset, currentOffset, isSnapToGrid) {
+function getItemStyles(initialOffset, currentOffset) {
     if (!initialOffset || !currentOffset) {
         return {
             display: 'none',
