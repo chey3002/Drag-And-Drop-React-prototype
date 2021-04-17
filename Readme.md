@@ -119,15 +119,6 @@ Para cambiar la imagen de las marcas, tenemos que modificar la variable “boxIm
     );
 ```
 
-This is a regular paragraph.
-
-<table>
-    <tr>
-        <td>Foo</td>
-    </tr>
-</table>
-
-This is another regular paragraph.
 ---
 
 by : @chey3002
